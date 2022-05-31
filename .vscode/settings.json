@@ -1,4 +1,8 @@
 {
     "cmake.configureOnOpen": false,
-    "dart.flutterSdkPath": "C:\\Users\\priet\\fvm\\versions\\stable"
+    "dart.flutterSdkPath": "C:\\Users\\priet\\fvm\\versions\\stable",
+    "dart.lineLength": 150,
+    "[dart]": {
+        "editor.rulers": [150]
+  }
 }
