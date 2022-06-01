@@ -3,15 +3,15 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/_fe_analyzer_shared-40.0.0",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/_fe_analyzer_shared-38.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/analyzer-4.1.0",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/analyzer-3.4.1",
       "packageUri": "lib/",
-      "languageVersion": "2.15"
+      "languageVersion": "2.14"
     },
     {
       "name": "args",
@@ -248,6 +248,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "get_it",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/get_it-7.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "glob",
       "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/glob-2.0.2",
       "packageUri": "lib/",
@@ -298,6 +304,18 @@
     {
       "name": "http_parser",
       "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http_parser-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "injectable",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/injectable-1.5.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "injectable_generator",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/injectable_generator-1.5.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -524,7 +542,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-06-01T06:28:39.053735Z",
+  "generated": "2022-06-01T08:34:29.129577Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }
