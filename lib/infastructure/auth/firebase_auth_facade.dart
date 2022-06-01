@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:injectable/injectable.dart';
 import 'package:stratpoint_internship/domain/auth/auth_failure.dart';
 import 'package:stratpoint_internship/domain/auth/i_auth_facade.dart';
 import 'package:stratpoint_internship/domain/auth/value_objects.dart';
@@ -8,6 +9,8 @@ import 'package:stratpoint_internship/domain/core/errors.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
+@LazySingleton(as: IAuthFacade)
+@Injectable(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
