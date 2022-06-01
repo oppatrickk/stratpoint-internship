@@ -10,6 +10,7 @@ class EmailAddress extends ValueObject<String> {
 
   factory EmailAddress(String input) {
     assert(input != null);
+    // Todo: Study Null Safety
     return EmailAddress._(
       validateEmailAddress(input),
     );
