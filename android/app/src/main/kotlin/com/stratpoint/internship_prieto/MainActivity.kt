@@ -1,4 +1,4 @@
-package com.example.stratpoint_internship
+package com.stratpoint.internship_prieto
 
 import io.flutter.embedding.android.FlutterActivity
 

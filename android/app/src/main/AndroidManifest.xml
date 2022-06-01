@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.stratpoint_internship">
+    package="com.stratpoint.internship_prieto">
    <application
         android:label="stratpoint_internship"
         android:name="${applicationName}"
