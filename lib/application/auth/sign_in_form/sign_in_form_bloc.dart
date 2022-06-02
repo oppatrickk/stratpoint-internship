@@ -16,10 +16,8 @@ part 'sign_in_form_bloc.freezed.dart';
 
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
+  SignInFormBloc(this._authFacade) : super(SignInFormState.initial());
   final IAuthFacade _authFacade;
-
-  SignInFormBloc(this._authFacade);
-  // ! The implicitly invoked unnamed constructor from 'Bloc<SignInFormEvent, SignInFormState>' has required parameters.
 
   @override
   SignInFormState get InitialState => SignInFormState.initial();
