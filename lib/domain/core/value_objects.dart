@@ -10,7 +10,7 @@ abstract class ValueObject<T> {
   Either<ValueFailure<T>, T> get value;
 
   T getorCrash() {
-    return value.fold((f) => throw UnexpectedValueError(f), (r) => r);
+    return value.fold((ValueFailure<T> f) => throw UnexpectedValueError(f), (r) => r);
   }
 
   bool isValid() => value.isRight();
