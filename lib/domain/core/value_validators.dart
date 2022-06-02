@@ -1,9 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:stratpoint_internship/domain/auth/value_objects.dart';
 import 'package:stratpoint_internship/domain/core/failures.dart';
 
 Either<ValueFailure<String>, String> validateEmailAddress(String? input) {
-  const emailRegex = r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
+  const String emailRegex = r"""^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+""";
 
   if (input == null) {
     return left(ValueFailure.invalidEmail(failedValue: input));
