@@ -8,11 +8,10 @@ import 'package:stratpoint_internship/domain/core/value_validators.dart';
 class EmailAddress extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
-  factory EmailAddress(String input) {
+  factory EmailAddress(String? input) {
     assert(input != null);
-    // Todo: Study Null Safety
     return EmailAddress._(
-      validateEmailAddress(input),
+      validateEmailAddress(input ?? ''),
     );
   }
 
@@ -22,7 +21,7 @@ class EmailAddress extends ValueObject<String> {
 class Password extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
-  factory Password(String input) {
+  factory Password(String? input) {
     assert(input != null);
     return Password._(
       validatePassword(input),
