@@ -14,6 +14,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "another_flushbar",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/another_flushbar-1.10.29",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "args",
       "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/args-2.3.1",
       "packageUri": "lib/",
@@ -542,7 +548,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-06-02T03:44:05.492028Z",
+  "generated": "2022-06-02T10:59:11.385654Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }
