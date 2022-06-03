@@ -1,9 +1,10 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bloc/bloc.dart';
+
 import 'package:stratpoint_internship/application/auth/sign_in_form/sign_in_form_bloc.dart';
 import 'package:stratpoint_internship/domain/auth/auth_failure.dart';
 import 'package:stratpoint_internship/domain/core/failures.dart';
@@ -20,6 +21,7 @@ class SignInForm extends StatelessWidget {
           (Either<AuthFailure, Unit> either) => either.fold(
             (AuthFailure failure) {
               FlushbarHelper.createError(
+                // ! Not Showing
                 message: failure.map(
                   cancelledByUser: (_) => 'Cancelled',
                   serverError: (_) => 'Server Error',
@@ -40,13 +42,13 @@ class SignInForm extends StatelessWidget {
           child: ListView(
             padding: const EdgeInsets.all(24),
             children: [
-              const SizedBox(height: 16),
+              const SizedBox(height: 24),
               const Text(
                 '📝',
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 120),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 24),
               TextFormField(
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.email),
@@ -61,7 +63,7 @@ class SignInForm extends StatelessWidget {
                         ),
                     (_) => null),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 24),
               TextFormField(
                 decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.lock),

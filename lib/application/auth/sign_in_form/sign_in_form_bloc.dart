@@ -17,18 +17,18 @@ part 'sign_in_form_state.dart';
 
 @injectable
 class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
-  SignInFormBloc(this._authFacade) : super(SignInFormState.initial()) {
-    on<SignInFormEvent>((SignInFormEvent event, Emitter<SignInFormState> emit) {});
-    // ! Not being implemented correctly
-  }
+  SignInFormBloc(this._authFacade) : super(SignInFormState.initial());
   final IAuthFacade _authFacade;
 
   SignInFormState get initialState => SignInFormState.initial();
 
+  @override
   Stream<SignInFormState> mapEventToState(
     SignInFormEvent event,
   ) async* {
     yield* event.map(
+        // Todo: Migrate to Bloc 8
+
         // Email Changed
         emailChanged: (EmailChanged e) async* {
       yield state.copyWith(
