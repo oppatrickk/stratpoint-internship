@@ -518,6 +518,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "uuid",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/uuid-3.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/vector_math-2.1.2",
       "packageUri": "lib/",
@@ -548,7 +554,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-06-03T00:46:24.998916Z",
+  "generated": "2022-06-03T03:36:05.215934Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }

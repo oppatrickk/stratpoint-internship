@@ -27,7 +27,8 @@ class SignInFormBloc extends Bloc<SignInFormEvent, SignInFormState> {
     SignInFormEvent event,
   ) async* {
     yield* event.map(
-        // Todo: Migrate to Bloc 8
+        // TODO: Migrate to Bloc 8
+        // Temporarily Switched to Bloc 7 for the TextForm Validation to work
 
         // Email Changed
         emailChanged: (EmailChanged e) async* {

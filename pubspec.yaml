@@ -23,6 +23,7 @@ dependencies:
   get_it: ^7.2.0
   bloc: ^7.1.0
   another_flushbar: ^1.10.29
+  uuid: ^3.0.6
 
 
 dev_dependencies:

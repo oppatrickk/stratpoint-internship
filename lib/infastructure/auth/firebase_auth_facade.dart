@@ -6,7 +6,10 @@ import 'package:injectable/injectable.dart';
 
 import 'package:stratpoint_internship/domain/auth/auth_failure.dart';
 import 'package:stratpoint_internship/domain/auth/i_auth_facade.dart';
+import 'package:stratpoint_internship/domain/auth/user.dart';
 import 'package:stratpoint_internship/domain/auth/value_objects.dart';
+import 'package:stratpoint_internship/domain/core/value_objects.dart';
+import 'package:stratpoint_internship/infastructure/auth/firebase_user_mapper.dart';
 
 @LazySingleton(as: IAuthFacade)
 @Injectable(as: IAuthFacade)
@@ -66,4 +69,14 @@ class FirebaseAuthFacade implements IAuthFacade {
       return left(const AuthFailure.serverError());
     }
   }
+
+  @override
+  Future<Option<User>> getSignedInUser() => _firebaseAuth.currentUser().then((firebaseUser) => optionOf(firebaseUser?.toDomain()));
+  // TODO: Migrate to latest Firebase get user
+
+  @override
+  Future<void> signOut() => Future.wait([
+        _googleSignIn.signOut(),
+        _firebaseAuth.signOut(),
+      ]);
 }
