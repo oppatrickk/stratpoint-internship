@@ -4,8 +4,8 @@ import 'package:stratpoint_internship/domain/core/value_objects.dart';
 part 'user.freezed.dart';
 
 @freezed
-class User with _$User {
-  const factory User({
+class UserID with _$UserID {
+  const factory UserID({
     required UniqueId id,
-  }) = _User;
+  }) = _UserID;
 }

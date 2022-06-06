@@ -15,27 +15,27 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$User {
+mixin _$UserID {
   UniqueId get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
+  $UserIDCopyWith<UserID> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserCopyWith<$Res> {
-  factory $UserCopyWith(User value, $Res Function(User) then) =
-      _$UserCopyWithImpl<$Res>;
+abstract class $UserIDCopyWith<$Res> {
+  factory $UserIDCopyWith(UserID value, $Res Function(UserID) then) =
+      _$UserIDCopyWithImpl<$Res>;
   $Res call({UniqueId id});
 }
 
 /// @nodoc
-class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
-  _$UserCopyWithImpl(this._value, this._then);
+class _$UserIDCopyWithImpl<$Res> implements $UserIDCopyWith<$Res> {
+  _$UserIDCopyWithImpl(this._value, this._then);
 
-  final User _value;
+  final UserID _value;
   // ignore: unused_field
-  final $Res Function(User) _then;
+  final $Res Function(UserID) _then;
 
   @override
   $Res call({
@@ -51,27 +51,27 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
-  factory _$$_UserCopyWith(_$_User value, $Res Function(_$_User) then) =
-      __$$_UserCopyWithImpl<$Res>;
+abstract class _$$_UserIDCopyWith<$Res> implements $UserIDCopyWith<$Res> {
+  factory _$$_UserIDCopyWith(_$_UserID value, $Res Function(_$_UserID) then) =
+      __$$_UserIDCopyWithImpl<$Res>;
   @override
   $Res call({UniqueId id});
 }
 
 /// @nodoc
-class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
-    implements _$$_UserCopyWith<$Res> {
-  __$$_UserCopyWithImpl(_$_User _value, $Res Function(_$_User) _then)
-      : super(_value, (v) => _then(v as _$_User));
+class __$$_UserIDCopyWithImpl<$Res> extends _$UserIDCopyWithImpl<$Res>
+    implements _$$_UserIDCopyWith<$Res> {
+  __$$_UserIDCopyWithImpl(_$_UserID _value, $Res Function(_$_UserID) _then)
+      : super(_value, (v) => _then(v as _$_UserID));
 
   @override
-  _$_User get _value => super._value as _$_User;
+  _$_UserID get _value => super._value as _$_UserID;
 
   @override
   $Res call({
     Object? id = freezed,
   }) {
-    return _then(_$_User(
+    return _then(_$_UserID(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -82,22 +82,22 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_User implements _User {
-  const _$_User({required this.id});
+class _$_UserID implements _UserID {
+  const _$_UserID({required this.id});
 
   @override
   final UniqueId id;
 
   @override
   String toString() {
-    return 'User(id: $id)';
+    return 'UserID(id: $id)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_User &&
+            other is _$_UserID &&
             const DeepCollectionEquality().equals(other.id, id));
   }
 
@@ -107,16 +107,17 @@ class _$_User implements _User {
 
   @JsonKey(ignore: true)
   @override
-  _$$_UserCopyWith<_$_User> get copyWith =>
-      __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+  _$$_UserIDCopyWith<_$_UserID> get copyWith =>
+      __$$_UserIDCopyWithImpl<_$_UserID>(this, _$identity);
 }
 
-abstract class _User implements User {
-  const factory _User({required final UniqueId id}) = _$_User;
+abstract class _UserID implements UserID {
+  const factory _UserID({required final UniqueId id}) = _$_UserID;
 
   @override
   UniqueId get id => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_UserCopyWith<_$_User> get copyWith => throw _privateConstructorUsedError;
+  _$$_UserIDCopyWith<_$_UserID> get copyWith =>
+      throw _privateConstructorUsedError;
 }

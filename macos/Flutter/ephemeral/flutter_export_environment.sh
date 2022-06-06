@@ -1,6 +1,6 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\Users\priet\fvm\versions\stable"
+export "FLUTTER_ROOT=C:\Users\priet\fvm\default"
 export "FLUTTER_APPLICATION_PATH=C:\Users\priet\Documents\GitHub\stratpoint_internship"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"

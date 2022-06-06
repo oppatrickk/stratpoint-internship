@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'dart:async';
 
 import 'package:stratpoint_internship/domain/auth/auth_failure.dart';
 import 'package:stratpoint_internship/domain/auth/i_auth_facade.dart';
@@ -14,7 +15,7 @@ import 'package:stratpoint_internship/infastructure/auth/firebase_user_mapper.da
 @LazySingleton(as: IAuthFacade)
 @Injectable(as: IAuthFacade)
 class FirebaseAuthFacade implements IAuthFacade {
-  FirebaseAuthFacade(this._firebaseAuth, this._googleSignIn);
+  FirebaseAuthFacade(this._googleSignIn, this._firebaseAuth);
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
 
@@ -23,10 +24,10 @@ class FirebaseAuthFacade implements IAuthFacade {
     final String emailAddressStr = emailAddress.getorCrash();
     final String passwordStr = password.getorCrash();
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(email: emailAddressStr, password: passwordStr);
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailAddressStr, password: passwordStr);
 
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const AuthFailure.emailAlreadyInUse());
       } else {
@@ -43,7 +44,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       await _firebaseAuth.signInWithEmailAndPassword(email: emailAddressStr, password: passwordStr);
 
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'wrong-password' || e.code == 'user-not-found') {
         return left(const AuthFailure.invalidEmailAndPasswordCombination());
       } else {
@@ -65,14 +66,18 @@ class FirebaseAuthFacade implements IAuthFacade {
       );
 
       return _firebaseAuth.signInWithCredential(credential).then((UserCredential r) => right(unit));
-    } on PlatformException catch (_) {
+    } on FirebaseAuthException catch (_) {
       return left(const AuthFailure.serverError());
     }
   }
 
-  @override
-  Future<Option<User>> getSignedInUser() => _firebaseAuth.currentUser().then((firebaseUser) => optionOf(firebaseUser?.toDomain()));
+  /*
+  Future<Option<UserID>> getSignedInUser() => _firebaseAuth.currentUser!.then((firebaseUser) => optionOf(firebaseUser?.toDomain()));
   // TODO: Migrate to latest Firebase get user
+  */
+
+  @override
+  Future<Option<UserID>> getSignInUser() async => optionOf(_firebaseAuth.currentUser?.toDomain());
 
   @override
   Future<void> signOut() => Future.wait([
