@@ -32,6 +32,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "auto_route",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/auto_route-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "auto_route_generator",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/auto_route_generator-4.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "bloc",
       "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/bloc-7.2.1",
       "packageUri": "lib/",
@@ -138,6 +150,12 @@
       "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/crypto-3.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "csslib",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/csslib-0.17.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "dart_style",
@@ -298,6 +316,12 @@
     {
       "name": "graphs",
       "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/graphs-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "html",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/html-0.15.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -518,6 +542,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "universal_html",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/universal_html-2.0.8",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "universal_io",
+      "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/universal_io-2.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "uuid",
       "rootUri": "file:///C:/Users/priet/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/uuid-3.0.6",
       "packageUri": "lib/",
@@ -554,7 +590,7 @@
       "languageVersion": "2.17"
     }
   ],
-  "generated": "2022-06-06T05:44:57.575522Z",
+  "generated": "2022-06-06T17:45:56.935130Z",
   "generator": "pub",
   "generatorVersion": "2.17.1"
 }

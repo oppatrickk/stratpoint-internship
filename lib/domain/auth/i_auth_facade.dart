@@ -4,7 +4,7 @@ import 'package:stratpoint_internship/domain/auth/user.dart';
 import 'package:stratpoint_internship/domain/auth/value_objects.dart';
 
 abstract class IAuthFacade {
-  Future<Option<UserID>> getSignInUser();
+  Future<Option<UserID>> getSignedInUser();
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
