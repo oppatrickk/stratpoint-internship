@@ -58,7 +58,10 @@ class SignInForm extends StatelessWidget {
                 onChanged: (String value) => context.read<SignInFormBloc>().add(SignInFormEvent.emailChanged(value)),
                 validator: (_) => context.read<SignInFormBloc>().state.emailAddress.value.fold(
                     (ValueFailure<String> f) => f.maybeMap(
-                          invalidEmail: (_) => 'Invalid Email',
+                          auth: (value) => value.f.maybeMap(
+                            invalidEmail: (_) => 'Invalid Email',
+                            orElse: () => null,
+                          ),
                           orElse: () => null,
                         ),
                     (_) => null),
@@ -74,7 +77,10 @@ class SignInForm extends StatelessWidget {
                 onChanged: (String value) => context.read<SignInFormBloc>().add(SignInFormEvent.passwordChanged(value)),
                 validator: (_) => context.read<SignInFormBloc>().state.password.value.fold(
                     (ValueFailure<String> f) => f.maybeMap(
-                          shortPassword: (_) => 'Short Password',
+                          auth: (value) => value.f.maybeMap(
+                            shortPassword: (_) => 'Short Password',
+                            orElse: () => null,
+                          ),
                           orElse: () => null,
                         ),
                     (_) => null),
@@ -113,6 +119,10 @@ class SignInForm extends StatelessWidget {
                 ),
                 child: const Text('Sign in with Google'),
               ),
+              if (state.isSubmitting) ...[
+                const SizedBox(height: 8),
+                const LinearProgressIndicator(value: null),
+              ]
             ],
           ),
         );
