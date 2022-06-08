@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:stratpoint_internship/domain/core/failures.dart';
 import 'package:stratpoint_internship/domain/core/value_objects.dart';
@@ -6,7 +7,7 @@ import 'package:stratpoint_internship/domain/notes/value_objects.dart';
 part 'todo_item.freezed.dart';
 
 @freezed
-class TodoItem implements _$TodoItem {
+abstract class TodoItem implements _$TodoItem {
   const TodoItem._();
 
   const factory TodoItem({
@@ -22,6 +23,6 @@ class TodoItem implements _$TodoItem {
       );
 
   Option<ValueFailure<dynamic>> get failureOption {
-    return name.value.fold((f) => some(f), (_) => none());
+    return name.value.fold((ValueFailure<String> f) => some(f), (_) => none());
   }
 }

@@ -61,6 +61,7 @@ class NoteColor extends ValueObject<Color> {
 }
 
 class List3<T> extends ValueObject<KtList<T>> {
+  // TODO: Change from KtList to Dart List
   factory List3(KtList<T> input) {
     assert(input != null);
     return List3<T>._(

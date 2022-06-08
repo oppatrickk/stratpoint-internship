@@ -10,10 +10,11 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(
-      listener: (context, state) {
+      listener: (BuildContext context, AuthState state) {
         state.map(
           initial: (_) {},
           authenticated: (_) {
+            // ignore: avoid_print
             print('I Am Authenticated');
           },
           unauthenticated: (_) => AutoRouter.of(context).push(const SignInPageRoute()),

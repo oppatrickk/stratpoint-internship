@@ -10,6 +10,7 @@ analyzer:
     - lib/generated/intl/*.dart
     - lib/plugins/i18n_generator/lib/*.dart
     - plugins/**
+    
 
   errors:
     invalid_assignment: warning
