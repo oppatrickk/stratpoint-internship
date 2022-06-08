@@ -23,7 +23,7 @@ abstract class Note implements _$Note {
         id: UniqueId(),
         body: NoteBody(''),
         color: NoteColor(NoteColor.predefinedColors[0]),
-        todos: List3(emptyList()),
+        todos: List3<TodoItem>(emptyList()),
       );
 
   Option<ValueFailure<dynamic>> get failureOption {

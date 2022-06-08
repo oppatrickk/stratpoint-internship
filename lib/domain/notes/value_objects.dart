@@ -46,7 +46,7 @@ class NoteColor extends ValueObject<Color> {
       right(makeColorOpaque(input)),
     );
   }
-  static const List<Color> predefinedColors = [
+  static const List<Color> predefinedColors = <Color>[
     Color(0xfffafafa), // canvas
     Color(0xfffa8072), // salmon
     Color(0xfffedc56), // mustard
@@ -63,7 +63,7 @@ class NoteColor extends ValueObject<Color> {
 class List3<T> extends ValueObject<KtList<T>> {
   factory List3(KtList<T> input) {
     assert(input != null);
-    return List3._(
+    return List3<T>._(
       validateMaxListLength(input, maxLength),
     );
   }

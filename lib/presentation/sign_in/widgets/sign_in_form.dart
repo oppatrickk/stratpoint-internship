@@ -1,6 +1,4 @@
-import 'package:another_flushbar/flushbar.dart';
 import 'package:another_flushbar/flushbar_helper.dart';
-import 'package:bloc/bloc.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,7 +39,7 @@ class SignInForm extends StatelessWidget {
           autovalidateMode: state.showErrorMessages,
           child: ListView(
             padding: const EdgeInsets.all(24),
-            children: [
+            children: <Widget>[
               const SizedBox(height: 24),
               const Text(
                 '📝',
@@ -88,7 +86,7 @@ class SignInForm extends StatelessWidget {
               const SizedBox(height: 8),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
+                children: <Widget>[
                   TextButton(
                     onPressed: () {
                       context.read<SignInFormBloc>().add(
@@ -119,7 +117,7 @@ class SignInForm extends StatelessWidget {
                 ),
                 child: const Text('Sign in with Google'),
               ),
-              if (state.isSubmitting) ...[
+              if (state.isSubmitting) ...<Widget>[
                 const SizedBox(height: 8),
                 const LinearProgressIndicator(value: null),
               ]
