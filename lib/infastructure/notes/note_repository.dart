@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/services.dart';
@@ -15,9 +14,7 @@ import 'package:stratpoint_internship/infastructure/notes/note_dtos.dart';
 
 @LazySingleton(as: INoteRepository)
 class NoteRepository implements INoteRepository {
-  NoteRepository(
-    this._firebaseFirestore,
-  );
+  NoteRepository(this._firebaseFirestore);
 
   final FirebaseFirestore _firebaseFirestore;
 
