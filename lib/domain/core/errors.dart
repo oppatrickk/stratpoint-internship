@@ -1,5 +1,7 @@
 import 'package:stratpoint_internship/domain/core/failures.dart';
 
+class NotAuthenticatedError extends Error {}
+
 class UnexpectedValueError extends Error {
   UnexpectedValueError(this.valueFailure);
   final ValueFailure valueFailure;
