@@ -1,5 +1,7 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
+import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 import 'package:kt_dart/kt.dart';
 import 'package:rxdart/rxdart.dart';
@@ -13,7 +15,9 @@ import 'package:stratpoint_internship/infastructure/notes/note_dtos.dart';
 
 @LazySingleton(as: INoteRepository)
 class NoteRepository implements INoteRepository {
-  NoteRepository(this._firebaseFirestore);
+  NoteRepository(
+    this._firebaseFirestore,
+  );
 
   final FirebaseFirestore _firebaseFirestore;
 
@@ -61,19 +65,61 @@ class NoteRepository implements INoteRepository {
     });
   }
 
-  // TODO: To be implemented next part of tutorial
   @override
-  Future<Either<NoteFailure, Unit>> create(Note note) {
-    throw UnimplementedError();
+  Future<Either<NoteFailure, Unit>> create(Note note) async {
+    try {
+      final DocumentReference<Object?> userDoc = await _firebaseFirestore.userDocument();
+      final NoteDTO noteDTO = NoteDTO.fromDomain(note);
+
+      await userDoc.noteCollection.doc(noteDTO.id).set(noteDTO.toJson());
+
+      return right(unit);
+    } on PlatformException catch (e) {
+      if (e.message!.contains('permission-denied')) {
+        return left(const NoteFailure.insufficientPermission());
+      } else {
+        return left(const NoteFailure.unexpected());
+      }
+    }
   }
 
   @override
-  Future<Either<NoteFailure, Unit>> delete(Note note) {
-    throw UnimplementedError();
+  Future<Either<NoteFailure, Unit>> update(Note note) async {
+    try {
+      final DocumentReference<Object?> userDoc = await _firebaseFirestore.userDocument();
+      final NoteDTO noteDTO = NoteDTO.fromDomain(note);
+
+      await userDoc.noteCollection.doc(noteDTO.id).update(noteDTO.toJson());
+
+      return right(unit);
+    } on PlatformException catch (e) {
+      if (e.message!.contains('permission-denied')) {
+        return left(const NoteFailure.insufficientPermission());
+      } else if (e.message!.contains('not-found')) {
+        return left(const NoteFailure.unableToUpdate());
+      } else {
+        return left(const NoteFailure.unexpected());
+      }
+    }
   }
 
   @override
-  Future<Either<NoteFailure, Unit>> update(Note note) {
-    throw UnimplementedError();
+  Future<Either<NoteFailure, Unit>> delete(Note note) async {
+    try {
+      final DocumentReference<Object?> userDoc = await _firebaseFirestore.userDocument();
+      final String noteId = note.id.getorCrash();
+
+      await userDoc.noteCollection.doc(noteId).delete();
+
+      return right(unit);
+    } on PlatformException catch (e) {
+      if (e.message!.contains('permission-denied')) {
+        return left(const NoteFailure.insufficientPermission());
+      } else if (e.message!.contains('permission-denied')) {
+        return left(const NoteFailure.unableToUpdate());
+      } else {
+        return left(const NoteFailure.unexpected());
+      }
+    }
   }
 }
