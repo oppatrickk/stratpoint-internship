@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
@@ -10,9 +11,6 @@ abstract class FirebaseInjectableModule {
   @LazySingleton()
   FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
 
-  /*
-  TODO: Implement Firestore
   @LazySingleton()
-  Firestore get firestore => Firestore.instance;
-  */
+  FirebaseFirestore get firestore => FirebaseFirestore.instance;
 }
