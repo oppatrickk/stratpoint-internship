@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:stratpoint_internship/application/notes/note_watcher/note_watcher_bloc.dart';
 import 'package:stratpoint_internship/domain/notes/note.dart';
+import 'package:stratpoint_internship/presentation/notes/notes_overview/widgets/critical_failure_display_widget.dart';
+import 'package:stratpoint_internship/presentation/notes/notes_overview/widgets/error_note_card_widget.dart';
+import 'package:stratpoint_internship/presentation/notes/notes_overview/widgets/note_card_widget.dart';
 
 class NotesOverviewBody extends StatelessWidget {
   const NotesOverviewBody({Key? key}) : super(key: key);
@@ -17,31 +20,20 @@ class NotesOverviewBody extends StatelessWidget {
           ),
           loadSuccess: (state) {
             return ListView.builder(
+              padding: const EdgeInsets.all(16.0),
               itemCount: state.notes.size,
               itemBuilder: (BuildContext context, int index) {
                 final Note note = state.notes[index];
                 if (note.failureOption.isSome()) {
-                  return Container(
-                    color: Colors.red,
-                    width: 100,
-                    height: 100,
-                  );
+                  return ErrorNoteCard(note: note);
                 } else {
-                  return Container(
-                    color: Colors.green,
-                    width: 100,
-                    height: 100,
-                  );
+                  return NoteCard(note: note);
                 }
               },
             );
           },
           loadFailure: (state) {
-            return Container(
-              color: Colors.yellow,
-              width: 200,
-              height: 200,
-            );
+            return CriticalFailureDisplay(failure: state.noteFailure);
           },
         );
       },
