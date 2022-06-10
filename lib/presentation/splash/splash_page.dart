@@ -13,10 +13,7 @@ class SplashPage extends StatelessWidget {
       listener: (BuildContext context, AuthState state) {
         state.map(
           initial: (_) {},
-          authenticated: (_) {
-            // ignore: avoid_print
-            print('I Am Authenticated');
-          },
+          authenticated: (_) => AutoRouter.of(context).push(const NotesOverviewPageRoute()),
           unauthenticated: (_) => AutoRouter.of(context).push(const SignInPageRoute()),
         );
       },

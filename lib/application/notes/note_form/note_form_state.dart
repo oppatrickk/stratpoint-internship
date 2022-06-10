@@ -12,9 +12,9 @@ class NoteFormState with _$NoteFormState {
 
   factory NoteFormState.initial() => NoteFormState(
         note: Note.empty(),
-        showErrorMessages: showErrorMessages,
-        isSaving: isSaving,
-        isEditing: isEditing,
-        saveFailureOrSuccessOption: saveFailureOrSuccessOption,
+        showErrorMessages: false,
+        isSaving: false,
+        isEditing: false,
+        saveFailureOrSuccessOption: none(),
       );
 }

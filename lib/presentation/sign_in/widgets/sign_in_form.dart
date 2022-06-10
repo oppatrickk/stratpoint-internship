@@ -1,11 +1,14 @@
 import 'package:another_flushbar/flushbar_helper.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:stratpoint_internship/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:stratpoint_internship/application/auth_bloc.dart';
 import 'package:stratpoint_internship/domain/auth/auth_failure.dart';
 import 'package:stratpoint_internship/domain/core/failures.dart';
+import 'package:stratpoint_internship/presentation/routes/router.dart';
 
 class SignInForm extends StatelessWidget {
   const SignInForm({Key? key}) : super(key: key);
@@ -16,22 +19,19 @@ class SignInForm extends StatelessWidget {
       listener: (BuildContext context, SignInFormState state) {
         state.authFailureOrSuccessOption.fold(
           () {},
-          (Either<AuthFailure, Unit> either) => either.fold(
-            (AuthFailure failure) {
-              FlushbarHelper.createError(
-                // ! Not Showing
-                message: failure.map(
-                  cancelledByUser: (_) => 'Cancelled',
-                  serverError: (_) => 'Server Error',
-                  emailAlreadyInUse: (_) => 'Email already in use',
-                  invalidEmailAndPasswordCombination: (_) => 'Invalid email and password combination',
-                ),
-              ).show(context);
-            },
-            (_) => {
-              // Todo: Navigate
-            },
-          ),
+          (Either<AuthFailure, Unit> either) => either.fold((AuthFailure failure) {
+            FlushbarHelper.createError(
+              message: failure.map(
+                cancelledByUser: (_) => 'Cancelled',
+                serverError: (_) => 'Server Error',
+                emailAlreadyInUse: (_) => 'Email already in use',
+                invalidEmailAndPasswordCombination: (_) => 'Invalid email and password combination',
+              ),
+            ).show(context);
+          }, (_) {
+            AutoRouter.of(context).push(const NotesOverviewPageRoute());
+            context.read<AuthBloc>().add(const AuthEvent.authCheckRequested());
+          }),
         );
       },
       builder: (BuildContext context, SignInFormState state) {
