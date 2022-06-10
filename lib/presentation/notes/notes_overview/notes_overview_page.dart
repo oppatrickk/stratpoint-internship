@@ -7,6 +7,7 @@ import 'package:stratpoint_internship/application/notes/note_actor/note_actor_bl
 import 'package:stratpoint_internship/application/notes/note_watcher/note_watcher_bloc.dart';
 import 'package:stratpoint_internship/injection.dart';
 import 'package:stratpoint_internship/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
+import 'package:stratpoint_internship/presentation/notes/notes_overview/widgets/uncompleted_switch.dart';
 import 'package:stratpoint_internship/presentation/routes/router.dart';
 
 class NotesOverviewPage extends StatelessWidget {
@@ -63,11 +64,8 @@ class NotesOverviewPage extends StatelessWidget {
                 context.read<AuthBloc>().add(const AuthEvent.signedOut());
               },
             ),
-            actions: <Widget>[
-              IconButton(
-                icon: const Icon(Icons.indeterminate_check_box),
-                onPressed: () {},
-              )
+            actions: const <Widget>[
+              UncompletedSwitch(),
             ],
           ),
           body: const NotesOverviewBody(),

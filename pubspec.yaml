@@ -29,6 +29,7 @@ dependencies:
   kt_dart: ^0.10.0
   json_annotation: ^4.5.0
   rxdart: ^0.27.4
+  flutter_hooks: ^0.18.4
 
 dev_dependencies:
   flutter_test:
