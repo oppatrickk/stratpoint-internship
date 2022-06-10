@@ -6,6 +6,7 @@ import 'package:stratpoint_internship/application/auth_bloc.dart';
 import 'package:stratpoint_internship/application/notes/note_actor/note_actor_bloc.dart';
 import 'package:stratpoint_internship/application/notes/note_watcher/note_watcher_bloc.dart';
 import 'package:stratpoint_internship/injection.dart';
+import 'package:stratpoint_internship/presentation/notes/notes_overview/widgets/notes_overview_body_widget.dart';
 import 'package:stratpoint_internship/presentation/routes/router.dart';
 
 class NotesOverviewPage extends StatelessWidget {
@@ -69,6 +70,7 @@ class NotesOverviewPage extends StatelessWidget {
               )
             ],
           ),
+          body: const NotesOverviewBody(),
           floatingActionButton: FloatingActionButton(
             onPressed: () {
               // TODO: Navigate to NoteFormPage

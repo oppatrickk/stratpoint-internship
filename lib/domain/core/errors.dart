@@ -4,7 +4,7 @@ class NotAuthenticatedError extends Error {}
 
 class UnexpectedValueError extends Error {
   UnexpectedValueError(this.valueFailure);
-  final ValueFailure valueFailure;
+  final ValueFailure<dynamic> valueFailure;
 
   @override
   String toString() {
