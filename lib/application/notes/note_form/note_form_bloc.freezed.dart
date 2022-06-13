@@ -825,7 +825,7 @@ abstract class _Saved implements NoteFormEvent {
 /// @nodoc
 mixin _$NoteFormState {
   Note get note => throw _privateConstructorUsedError;
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSaving => throw _privateConstructorUsedError;
   bool get isEditing => throw _privateConstructorUsedError;
   Option<Either<NoteFailure, Unit>> get saveFailureOrSuccessOption =>
@@ -843,7 +843,7 @@ abstract class $NoteFormStateCopyWith<$Res> {
       _$NoteFormStateCopyWithImpl<$Res>;
   $Res call(
       {Note note,
-      bool showErrorMessages,
+      AutovalidateMode showErrorMessages,
       bool isSaving,
       bool isEditing,
       Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption});
@@ -876,7 +876,7 @@ class _$NoteFormStateCopyWithImpl<$Res>
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as AutovalidateMode,
       isSaving: isSaving == freezed
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
@@ -909,7 +909,7 @@ abstract class _$$_NoteFormStateCopyWith<$Res>
   @override
   $Res call(
       {Note note,
-      bool showErrorMessages,
+      AutovalidateMode showErrorMessages,
       bool isSaving,
       bool isEditing,
       Option<Either<NoteFailure, Unit>> saveFailureOrSuccessOption});
@@ -945,7 +945,7 @@ class __$$_NoteFormStateCopyWithImpl<$Res>
       showErrorMessages: showErrorMessages == freezed
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as AutovalidateMode,
       isSaving: isSaving == freezed
           ? _value.isSaving
           : isSaving // ignore: cast_nullable_to_non_nullable
@@ -975,7 +975,7 @@ class _$_NoteFormState implements _NoteFormState {
   @override
   final Note note;
   @override
-  final bool showErrorMessages;
+  final AutovalidateMode showErrorMessages;
   @override
   final bool isSaving;
   @override
@@ -1020,7 +1020,7 @@ class _$_NoteFormState implements _NoteFormState {
 abstract class _NoteFormState implements NoteFormState {
   const factory _NoteFormState(
       {required final Note note,
-      required final bool showErrorMessages,
+      required final AutovalidateMode showErrorMessages,
       required final bool isSaving,
       required final bool isEditing,
       required final Option<Either<NoteFailure, Unit>>
@@ -1029,7 +1029,7 @@ abstract class _NoteFormState implements NoteFormState {
   @override
   Note get note => throw _privateConstructorUsedError;
   @override
-  bool get showErrorMessages => throw _privateConstructorUsedError;
+  AutovalidateMode get showErrorMessages => throw _privateConstructorUsedError;
   @override
   bool get isSaving => throw _privateConstructorUsedError;
   @override

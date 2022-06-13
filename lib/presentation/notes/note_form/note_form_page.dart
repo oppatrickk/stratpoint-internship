@@ -7,6 +7,7 @@ import 'package:stratpoint_internship/application/notes/note_form/note_form_bloc
 import 'package:stratpoint_internship/domain/notes/note.dart';
 import 'package:stratpoint_internship/domain/notes/note_failure.dart';
 import 'package:stratpoint_internship/injection.dart';
+import 'package:stratpoint_internship/presentation/notes/note_form/widgets/body_field_widget.dart';
 import 'package:stratpoint_internship/presentation/routes/router.dart';
 
 class NoteFormPage extends StatelessWidget {
@@ -118,6 +119,21 @@ class NoteFormPageScaffold extends StatelessWidget {
             },
           )
         ],
+      ),
+      body: BlocBuilder<NoteFormBloc, NoteFormState>(
+        buildWhen: (NoteFormState previous, NoteFormState current) => previous.showErrorMessages != current.showErrorMessages,
+        builder: (BuildContext context, NoteFormState state) {
+          return Form(
+            autovalidateMode: state.showErrorMessages,
+            child: SingleChildScrollView(
+              child: Column(
+                children: const <Widget>[
+                  BodyField(),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
