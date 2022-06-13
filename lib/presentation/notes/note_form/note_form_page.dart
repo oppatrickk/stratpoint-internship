@@ -3,10 +3,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:stratpoint_internship/application/notes/note_form/note_form_bloc.dart';
 import 'package:stratpoint_internship/domain/notes/note.dart';
 import 'package:stratpoint_internship/domain/notes/note_failure.dart';
 import 'package:stratpoint_internship/injection.dart';
+import 'package:stratpoint_internship/presentation/notes/note_form/misc/todo_item_presentation_classes.dart';
+import 'package:stratpoint_internship/presentation/notes/note_form/widgets/add_todo_tile_widget.dart';
 import 'package:stratpoint_internship/presentation/notes/note_form/widgets/body_field_widget.dart';
 import 'package:stratpoint_internship/presentation/notes/note_form/widgets/color_field_widget.dart';
 import 'package:stratpoint_internship/presentation/routes/router.dart';
@@ -124,14 +127,18 @@ class NoteFormPageScaffold extends StatelessWidget {
       body: BlocBuilder<NoteFormBloc, NoteFormState>(
         buildWhen: (NoteFormState previous, NoteFormState current) => previous.showErrorMessages != current.showErrorMessages,
         builder: (BuildContext context, NoteFormState state) {
-          return Form(
-            autovalidateMode: state.showErrorMessages,
-            child: SingleChildScrollView(
-              child: Column(
-                children: const <Widget>[
-                  BodyField(),
-                  ColorField(),
-                ],
+          return ChangeNotifierProvider(
+            create: (_) => FormTodos(),
+            child: Form(
+              autovalidateMode: state.showErrorMessages,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: const <Widget>[
+                    BodyField(),
+                    ColorField(),
+                    AddTodoTile(),
+                  ],
+                ),
               ),
             ),
           );
