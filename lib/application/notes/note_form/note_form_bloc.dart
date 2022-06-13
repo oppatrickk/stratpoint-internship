@@ -21,6 +21,8 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
 
   final INoteRepository _noteRepository;
 
+  // Not Necessary Aymore
+  // TODO: When migrating to Bloc 8, Delete all similar instances
   NoteFormState get initialState => NoteFormState.initial();
 
   @override
