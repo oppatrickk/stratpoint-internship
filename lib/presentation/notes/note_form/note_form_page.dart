@@ -8,6 +8,7 @@ import 'package:stratpoint_internship/domain/notes/note.dart';
 import 'package:stratpoint_internship/domain/notes/note_failure.dart';
 import 'package:stratpoint_internship/injection.dart';
 import 'package:stratpoint_internship/presentation/notes/note_form/widgets/body_field_widget.dart';
+import 'package:stratpoint_internship/presentation/notes/note_form/widgets/color_field_widget.dart';
 import 'package:stratpoint_internship/presentation/routes/router.dart';
 
 class NoteFormPage extends StatelessWidget {
@@ -129,6 +130,7 @@ class NoteFormPageScaffold extends StatelessWidget {
               child: Column(
                 children: const <Widget>[
                   BodyField(),
+                  ColorField(),
                 ],
               ),
             ),
