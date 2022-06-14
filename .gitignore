@@ -33,6 +33,10 @@ migrate_working_dir/
 .pub/
 /build/
 
+#Freezed package
+*.g.dart 
+*.freezed.dart
+
 # Web related
 lib/generated_plugin_registrant.dart
 
