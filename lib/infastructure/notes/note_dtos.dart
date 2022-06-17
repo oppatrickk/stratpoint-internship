@@ -40,7 +40,6 @@ abstract class NoteDTO implements _$NoteDTO {
           )
           .asList(),
       serverTimeStamp: FieldValue.serverTimestamp(),
-      // ! Might have not been implemented correctly
     );
   }
 

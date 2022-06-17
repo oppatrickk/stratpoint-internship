@@ -42,7 +42,6 @@ class NoteFormPage extends StatelessWidget {
                 },
                 (_) {
                   AutoRouter.of(context).popUntilRouteWithName(NotesOverviewPageRoute.name);
-                  // ! Check if implemented correctly
                 },
               );
             },

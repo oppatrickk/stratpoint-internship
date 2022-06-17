@@ -11,36 +11,25 @@ part 'auth_bloc.freezed.dart';
 
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  AuthBloc(this._authFacade) : super(const AuthState.initial());
-
-  AuthState get initialState => const AuthState.initial();
-
-  @override
-  Stream<AuthState> mapEventToState(
-    AuthEvent event,
-  ) async* {
-    yield* event.map(
-      authCheckRequested: (AuthCheckRequested e) async* {
+  AuthBloc(this._authFacade) : super(const AuthState.initial()) {
+    on<AuthCheckRequested>(
+      (AuthEvent event, Emitter<AuthState> emit) async {
         final Option<UserID> userOption = await _authFacade.getSignedInUser();
-        yield userOption.fold(
-          () => const AuthState.unauthenticated(),
-          (_) => const AuthState.authenticated(),
+        emit(
+          userOption.fold(
+            () => const AuthState.unauthenticated(),
+            (_) => const AuthState.authenticated(),
+          ),
         );
       },
-      signedOut: (SignedOut e) async* {
+    );
+    on<SignedOut>(
+      (AuthEvent event, Emitter<AuthState> emit) async {
         await _authFacade.signOut();
-        yield const AuthState.unauthenticated();
+        emit(const AuthState.unauthenticated());
       },
     );
   }
-
-  /*
-  AuthBloc() : super(const Initial()) {
-    on<AuthEvent>((AuthEvent event, Emitter<AuthState> emit) {});
-  }
-  TODO: Migrate to Bloc 8
-
-  */
 
   final IAuthFacade _authFacade;
 }
