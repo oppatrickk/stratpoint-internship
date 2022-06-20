@@ -8,6 +8,7 @@ import 'package:stratpoint_internship/domain/notes/i_note_repository.dart';
 
 import 'package:stratpoint_internship/domain/notes/note.dart';
 import 'package:stratpoint_internship/domain/notes/note_failure.dart';
+import 'package:stratpoint_internship/domain/notes/todo_item.dart';
 import 'package:stratpoint_internship/domain/notes/value_objects.dart';
 import 'package:stratpoint_internship/presentation/notes/note_form/misc/todo_item_presentation_classes.dart';
 
@@ -54,7 +55,7 @@ class NoteFormBloc extends Bloc<NoteFormEvent, NoteFormState> {
   Future<void> _todosChanged(_TodosChanged event, Emitter<NoteFormState> emit) async {
     emit(state.copyWith(
       note: state.note.copyWith(
-        todos: List3(event.todos.map((TodoItemPrimitive primitive) => primitive.toDomain())),
+        todos: List3<TodoItem>(event.todos.map((TodoItemPrimitive primitive) => primitive.toDomain())),
       ),
       saveFailureOrSuccessOption: none(),
     ));

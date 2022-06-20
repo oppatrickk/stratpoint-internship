@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:stratpoint_internship/domain/notes/note_failure.dart';
 

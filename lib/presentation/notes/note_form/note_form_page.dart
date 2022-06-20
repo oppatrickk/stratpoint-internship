@@ -22,13 +22,13 @@ class NoteFormPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BlocProvider<NoteFormBloc>(
       create: (BuildContext context) => getIt<NoteFormBloc>()..add(NoteFormEvent.initialized(optionOf(editedNote))),
       child: BlocConsumer<NoteFormBloc, NoteFormState>(
         listenWhen: (NoteFormState previous, NoteFormState current) => previous.saveFailureOrSuccessOption != current.saveFailureOrSuccessOption,
         listener: (BuildContext context, NoteFormState state) {
           state.saveFailureOrSuccessOption.fold(
-            () => {},
+            () => <dynamic, dynamic>{},
             (Either<NoteFailure, Unit> either) {
               either.fold(
                 (NoteFailure failure) {
@@ -127,7 +127,7 @@ class NoteFormPageScaffold extends StatelessWidget {
       body: BlocBuilder<NoteFormBloc, NoteFormState>(
         buildWhen: (NoteFormState previous, NoteFormState current) => previous.showErrorMessages != current.showErrorMessages,
         builder: (BuildContext context, NoteFormState state) {
-          return ChangeNotifierProvider(
+          return ChangeNotifierProvider<FormTodos>(
             create: (_) => FormTodos(),
             child: Form(
               autovalidateMode: state.showErrorMessages,

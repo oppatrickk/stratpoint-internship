@@ -13,7 +13,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
+      providers: <BlocProvider<Bloc<dynamic, dynamic>>>[
         BlocProvider<AuthBloc>(
           create: (BuildContext context) => getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
         ),

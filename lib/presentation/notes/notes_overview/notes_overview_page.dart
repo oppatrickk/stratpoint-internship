@@ -16,7 +16,7 @@ class NotesOverviewPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
+      providers: <BlocProvider<Bloc<dynamic, dynamic>>>[
         BlocProvider<NoteWatcherBloc>(
           create: (BuildContext context) => getIt<NoteWatcherBloc>()..add(const NoteWatcherEvent.watchAllStarted()),
         ),
@@ -25,7 +25,7 @@ class NotesOverviewPage extends StatelessWidget {
         ),
       ],
       child: MultiBlocListener(
-        listeners: [
+        listeners: <BlocListener<dynamic, dynamic>>[
           BlocListener<AuthBloc, AuthState>(
             listener: ((BuildContext context, AuthState state) {
               state.maybeMap(

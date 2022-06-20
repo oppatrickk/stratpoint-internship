@@ -35,20 +35,18 @@ abstract class ValueObject<T> {
 }
 
 class UniqueId extends ValueObject<String> {
-  UniqueId._(this.value);
+  const UniqueId._(this.value);
 
   factory UniqueId() {
     return UniqueId._(right(const Uuid().v1()));
   }
 
   factory UniqueId.fromUniqueString(String uniqueId) {
-    assert(uniqueId != null);
-
     return UniqueId._(
       right(uniqueId),
     );
   }
 
   @override
-  Either<ValueFailure<String>, String> value;
+  final Either<ValueFailure<String>, String> value;
 }

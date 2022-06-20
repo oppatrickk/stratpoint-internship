@@ -13,7 +13,7 @@ part 'note_dtos.g.dart';
 @freezed
 abstract class NoteDTO implements _$NoteDTO {
   factory NoteDTO.fromJson(Map<String, dynamic> json) => _$NoteDTOFromJson(json);
-  factory NoteDTO.fromFirestore(DocumentSnapshot doc) {
+  factory NoteDTO.fromFirestore(DocumentSnapshot<Object?> doc) {
     return NoteDTO.fromJson(doc.data() as Map<String, dynamic>).copyWith(id: doc.id);
   }
 

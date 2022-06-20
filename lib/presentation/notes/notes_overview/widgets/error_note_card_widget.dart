@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stratpoint_internship/domain/core/failures.dart';
 import 'package:stratpoint_internship/domain/notes/note.dart';
 
 class ErrorNoteCard extends StatelessWidget {
@@ -28,7 +29,7 @@ class ErrorNoteCard extends StatelessWidget {
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
             Text(
-              note.failureOption.fold(() => '', (f) => f.toString()),
+              note.failureOption.fold(() => '', (ValueFailure<dynamic> f) => f.toString()),
               style: Theme.of(context).primaryTextTheme.bodyText2,
             ),
           ],

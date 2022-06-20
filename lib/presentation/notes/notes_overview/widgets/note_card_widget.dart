@@ -35,7 +35,7 @@ class NoteCard extends StatelessWidget {
                 note.body.getorCrash(),
                 style: const TextStyle(fontSize: 18),
               ),
-              if (note.todos.length > 0) ...[
+              if (note.todos.length > 0) ...<Widget>[
                 const SizedBox(
                   height: 4,
                 ),

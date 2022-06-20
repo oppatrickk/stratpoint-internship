@@ -9,7 +9,6 @@ import 'package:stratpoint_internship/domain/core/value_validators.dart';
 
 class NoteBody extends ValueObject<String> {
   factory NoteBody(String input) {
-    assert(input != null);
     return NoteBody._(
       validateMaxStringLength(input, maxLength).flatMap(validateStringNotEmpty),
     );
@@ -24,7 +23,6 @@ class NoteBody extends ValueObject<String> {
 
 class TodoName extends ValueObject<String> {
   factory TodoName(String input) {
-    assert(input != null);
     return TodoName._(
       validateMaxStringLength(input, maxLength).flatMap(validateStringNotEmpty).flatMap(validateSingleLine),
     );
@@ -41,7 +39,6 @@ class NoteColor extends ValueObject<Color> {
   const NoteColor._(this.value);
 
   factory NoteColor(Color input) {
-    assert(input != null);
     return NoteColor._(
       right(makeColorOpaque(input)),
     );
@@ -63,7 +60,6 @@ class NoteColor extends ValueObject<Color> {
 class List3<T> extends ValueObject<KtList<T>> {
   // TODO: Change from KtList to Dart List
   factory List3(KtList<T> input) {
-    assert(input != null);
     return List3<T>._(
       validateMaxListLength(input, maxLength),
     );
