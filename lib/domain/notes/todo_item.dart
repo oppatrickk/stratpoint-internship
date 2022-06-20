@@ -7,7 +7,7 @@ import 'package:stratpoint_internship/domain/notes/value_objects.dart';
 part 'todo_item.freezed.dart';
 
 @freezed
-abstract class TodoItem implements _$TodoItem {
+class TodoItem implements _$TodoItem {
   const TodoItem._();
 
   const factory TodoItem({
@@ -25,4 +25,7 @@ abstract class TodoItem implements _$TodoItem {
   Option<ValueFailure<dynamic>> get failureOption {
     return name.value.fold((ValueFailure<String> f) => some(f), (_) => none());
   }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }

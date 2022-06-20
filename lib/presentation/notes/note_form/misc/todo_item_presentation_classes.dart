@@ -12,7 +12,7 @@ class FormTodos extends ValueNotifier<KtList<TodoItemPrimitive>> {
 }
 
 @freezed
-abstract class TodoItemPrimitive implements _$TodoItemPrimitive {
+class TodoItemPrimitive implements _$TodoItemPrimitive {
   const TodoItemPrimitive._();
 
   const factory TodoItemPrimitive({
@@ -42,4 +42,20 @@ abstract class TodoItemPrimitive implements _$TodoItemPrimitive {
       done: done,
     );
   }
+
+  @override
+  // TODO: implement copyWith
+  $TodoItemPrimitiveCopyWith<TodoItemPrimitive> get copyWith => throw UnimplementedError();
+
+  @override
+  // TODO: implement done
+  bool get done => throw UnimplementedError();
+
+  @override
+  // TODO: implement id
+  UniqueId get id => throw UnimplementedError();
+
+  @override
+  // TODO: implement name
+  String get name => throw UnimplementedError();
 }

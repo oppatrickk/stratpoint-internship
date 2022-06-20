@@ -9,7 +9,7 @@ import 'package:stratpoint_internship/domain/notes/value_objects.dart';
 part 'note.freezed.dart';
 
 @freezed
-abstract class Note implements _$Note {
+class Note implements _$Note {
   const Note._();
 
   const factory Note({
@@ -41,4 +41,7 @@ abstract class Note implements _$Note {
         )
         .fold((ValueFailure<dynamic> f) => some(f), (_) => none());
   }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }

@@ -11,7 +11,7 @@ part 'note_dtos.freezed.dart';
 part 'note_dtos.g.dart';
 
 @freezed
-abstract class NoteDTO implements _$NoteDTO {
+class NoteDTO implements _$NoteDTO {
   factory NoteDTO.fromJson(Map<String, dynamic> json) => _$NoteDTOFromJson(json);
   factory NoteDTO.fromFirestore(DocumentSnapshot<Object?> doc) {
     return NoteDTO.fromJson(doc.data() as Map<String, dynamic>).copyWith(id: doc.id);
@@ -51,6 +51,9 @@ abstract class NoteDTO implements _$NoteDTO {
       todos: List3<TodoItem>(todos.map((TodoItemDTO dto) => dto.toDomain()).toImmutableList()),
     );
   }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
 
 class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
@@ -66,7 +69,7 @@ class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
 }
 
 @freezed
-abstract class TodoItemDTO implements _$TodoItemDTO {
+class TodoItemDTO implements _$TodoItemDTO {
   factory TodoItemDTO.fromJson(Map<String, dynamic> json) => _$TodoItemDTOFromJson(json);
   const TodoItemDTO._();
 
@@ -91,4 +94,7 @@ abstract class TodoItemDTO implements _$TodoItemDTO {
       done: done,
     );
   }
+
+  @override
+  dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
