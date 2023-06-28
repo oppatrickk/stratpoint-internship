@@ -16,6 +16,7 @@ class AppWidget extends StatelessWidget {
       providers: <BlocProvider<Bloc<dynamic, dynamic>>>[
         BlocProvider<AuthBloc>(
           create: (BuildContext context) => getIt<AuthBloc>()..add(const AuthEvent.authCheckRequested()),
+          // TODO(patrick): Create Blocs Provider widget
         ),
       ],
       child: MaterialApp.router(

@@ -31,6 +31,7 @@ class BodyField extends HookWidget {
           onChanged: (String value) => context.read<NoteFormBloc>().add(NoteFormEvent.bodyChanged(value)),
           validator: (_) => context.read<NoteFormBloc>().state.note.body.value.fold(
                 (ValueFailure<String> f) => f.maybeMap(
+                  // ignore: always_specify_types
                   notes: (value) => value.f.maybeMap(
                     empty: (Empty<String> f) => 'Cannot be empty',
                     exceedingLength: (ExceedingLength<String> f) => 'Exceeding Length, max: ${f.max}',

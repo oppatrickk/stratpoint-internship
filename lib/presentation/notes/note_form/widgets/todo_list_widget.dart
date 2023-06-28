@@ -137,11 +137,11 @@ class TodoTile extends HookWidget {
                   context.read<NoteFormBloc>().add(NoteFormEvent.todosChanged(context.formTodos));
                 },
                 validator: (_) {
-                  // ! Error not implemented correctly
                   return context.read<NoteFormBloc>().state.note.todos.value.fold(
                         (ValueFailure<KtList<TodoItem>> f) => null,
                         (KtList<TodoItem> todoList) => todoList[index].name.value.fold(
                               (ValueFailure<String> f) => f.maybeMap(
+                                // ignore: always_specify_types
                                 notes: (value) => value.f.maybeMap(
                                   empty: (_) => 'Cannot be Empty',
                                   exceedingLength: (_) => 'Too long',

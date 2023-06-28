@@ -18,6 +18,7 @@ class NotesOverviewBody extends StatelessWidget {
           loadInProgress: (_) => const Center(
             child: CircularProgressIndicator(),
           ),
+          // ignore: always_specify_types
           loadSuccess: (state) {
             return ListView.builder(
               padding: const EdgeInsets.all(16.0),
@@ -32,6 +33,7 @@ class NotesOverviewBody extends StatelessWidget {
               },
             );
           },
+          // ignore: always_specify_types
           loadFailure: (state) {
             return CriticalFailureDisplay(failure: state.noteFailure);
           },

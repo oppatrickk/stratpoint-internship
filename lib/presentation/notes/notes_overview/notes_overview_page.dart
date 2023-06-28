@@ -39,6 +39,7 @@ class NotesOverviewPage extends StatelessWidget {
           BlocListener<NoteActorBloc, NoteActorState>(
             listener: ((BuildContext context, NoteActorState state) {
               state.maybeMap(
+                // ignore: always_specify_types
                 deleteFailure: (state) {
                   FlushbarHelper.createError(
                     duration: const Duration(seconds: 5),

@@ -55,14 +55,15 @@ class SignInForm extends StatelessWidget {
                 autocorrect: false,
                 onChanged: (String value) => context.read<SignInFormBloc>().add(SignInFormEvent.emailChanged(value)),
                 validator: (_) => context.read<SignInFormBloc>().state.emailAddress.value.fold(
-                    (ValueFailure<String> f) => f.maybeMap(
-                          auth: (value) => value.f.maybeMap(
-                            invalidEmail: (_) => 'Invalid Email',
-                            orElse: () => null,
-                          ),
+                      (ValueFailure<String> f) => f.maybeMap(
+                        auth: (value) => value.f.maybeMap(
+                          invalidEmail: (_) => 'Invalid Email',
                           orElse: () => null,
                         ),
-                    (_) => null),
+                        orElse: () => null,
+                      ),
+                      (_) => null,
+                    ),
               ),
               const SizedBox(height: 24),
               TextFormField(
